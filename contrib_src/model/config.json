@@ -1,0 +1,58 @@
+{
+  "id": "948e93d7-bc36-4c39-9640-dc3345269fe7",
+  "meta": {
+    "name": "GoogLeNet",
+    "application_area": "ImageNet",
+    "task": "Classification",
+    "task_extended": "ImageNet classification",
+    "data_type": "Image/Photo",
+    "data_source": "http://www.image-net.org/challenges/LSVRC/2014/"
+  },
+  "publication": {
+    "title":
+      "Going Deeper With Convolutions",
+    "source": "Proceedings of the IEEE conference on computer vision and pattern recognition",
+    "year": 2015,
+    "authors":
+      "Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelov, Dumitru Erhan, Vincent Vanhoucke, Andrew Rabinovich",
+    "email": "",
+    "abstract":
+      "We propose a deep convolutional neural network architecture codenamed Inception that achieves the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC14). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. By a carefully crafted design, we increased the depth and width of the network while keeping the computational budget constant. To optimize quality, the architectural decisions were based on the Hebbian principle and the intuition of multi-scale processing. One particular incarnation used in our submission for ILSVRC14 is called GoogLeNet, a 22 layers deep network, the quality of which is assessed in the context of classification and detection.",
+    "url": "http://openaccess.thecvf.com/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf",
+    "google_scholar":
+      "https://scholar.google.com/scholar?cluster=17799971764477278135&hl=de&as_sdt=0,22",
+    "bibtex":
+      "@INPROCEEDINGS{7298594, author={C. Szegedy and Wei Liu and Yangqing Jia and P. Sermanet and S. Reed and D. Anguelov and D. Erhan and V. Vanhoucke and A. Rabinovich}, booktitle={2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, title={Going deeper with convolutions}, year={2015}, volume={}, number={}, pages={1-9}, keywords={convolution;decision making;feature extraction;Hebbian learning;image classification;neural net architecture;resource allocation;convolutional neural network architecture;resource utilization;architectural decision;Hebbian principle;object classification;object detection;Computer architecture;Convolutional codes;Sparse matrices;Neural networks;Visualization;Object detection;Computer vision}, doi={10.1109/CVPR.2015.7298594}, ISSN={1063-6919}, month={June},}"
+  },
+  "viewer": "netron",
+  "model": {
+    "description":
+      "22 layers deep network. The main hallmark of this architecture is the improved utilization of the computing resources inside the network. By a carefully crafted design, we increased the depth and width of the network while keeping the computational budget constant.",
+    "architecture": "Convolutional Neural Network (CNN)",
+    "learning_type": "Supervised learning",
+    "io": {
+      "input": {
+        "format": ["image/png", "image/jpg", "image/jpeg"],
+        "dim_limits": [
+          {
+            "min": 1,
+            "max": 4
+          },
+          {
+            "min": 32
+          },
+          {
+            "min": 32
+          }
+        ]
+      },
+      "output": [
+        {
+          "name": "probabilities",
+          "type": "label_list"
+        }
+      ]
+    }
+  },
+  "allow_user_input": true
+}
