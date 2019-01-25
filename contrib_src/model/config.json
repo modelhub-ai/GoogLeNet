@@ -30,6 +30,7 @@
       "22 layers deep network. The main hallmark of this architecture is the improved utilization of the computing resources inside the network. By a carefully crafted design, we increased the depth and width of the network while keeping the computational budget constant.",
     "architecture": "Convolutional Neural Network (CNN)",
     "learning_type": "Supervised learning",
+    "backend": ["caffe2", "onnx"],
     "io": {
       "input": {
         "format": ["image/png", "image/jpg", "image/jpeg"],
@@ -49,10 +50,12 @@
       "output": [
         {
           "name": "probabilities",
-          "type": "label_list"
+          "type": "label_list",
+          "description": "Probabilities of the 1000 classes in the ImageNet dataset."
         }
       ]
     }
   },
-  "allow_user_input": true
+  "allow_user_test": true,
+  "allow_sample_demo": true
 }
