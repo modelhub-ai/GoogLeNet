@@ -50,8 +50,6 @@
       ]
     }
   },
-  "allow_user_test": true,
-  "allow_sample_demo": true,
   "modelhub": {
     "top": 5,
     "sort": true
