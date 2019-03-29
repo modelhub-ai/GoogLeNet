@@ -1,4 +1,9 @@
 {
-  "docker_id": "modelhub/caffe2-modelhub:1.0.0",
-  "external_contrib_files": []
+  "docker_id": "modelhub/caffe-modelhub:1.0.0",
+  "external_contrib_files": [
+    {
+      "src_url": "https://github.com/modelhub-ai/googlenet/releases/download/v1.1/model.caffemodel",
+      "dest_file_path": "/contrib_src/model/model.caffemodel"
+    }
+  ]
 }

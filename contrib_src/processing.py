@@ -1,36 +1,27 @@
 from modelhublib.processor import ImageProcessorBase
 import PIL
-import SimpleITK
 import numpy as np
 import json
-
+import skimage.io
+import caffe
 
 class ImageProcessor(ImageProcessorBase):
 
     def _preprocessBeforeConversionToNumpy(self, image):
         if isinstance(image, PIL.Image.Image):
-            image = image.resize((224,224), resample = PIL.Image.LANCZOS)
-        elif isinstance(image, SimpleITK.Image):
-            newSize = [224, 224]
-            referenceImage = SimpleITK.Image(newSize, image.GetPixelIDValue())
-            referenceImage.SetOrigin(image.GetOrigin())
-            referenceImage.SetDirection(image.GetDirection())
-            referenceImage.SetSpacing([sz*spc/nsz for nsz,sz,spc in zip(newSize, 
-                                                                        image.GetSize(), 
-                                                                        image.GetSpacing())])
-            image = SimpleITK.Resample(image, referenceImage)
+            color = True
+            image = skimage.img_as_float( image ).astype(np.float32)
+            if image.ndim == 2:
+                image = image[:, :, np.newaxis]
+                if color:
+                    image = np.tile(image, (1, 1, 3))
+            elif image.shape[2] == 4:
+                image = image[:, :, :3]
         else:
             raise IOError("Image Type not supported for preprocessing.")
         return image
 
     def _preprocessAfterConversionToNumpy(self, npArr):
-        if npArr.shape[1] > 3:
-            npArr = npArr[:,0:3,:,:]
-        elif npArr.shape[1] < 3:
-            npArr = npArr[:,[0],:,:]
-            npArr = np.concatenate((npArr, npArr[:,[0],:,:]), axis = 1)
-            npArr = np.concatenate((npArr, npArr[:,[0],:,:]), axis = 1)
-        npArr = npArr - 127.5
         return npArr
 
     def computeOutput(self, inferenceResults):

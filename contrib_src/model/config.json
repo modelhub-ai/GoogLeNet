@@ -20,10 +20,10 @@
   },
   "model": {
     "description": "22 layers deep network. The main hallmark of this architecture is the improved utilization of the computing resources inside the network. By a carefully crafted design, we increased the depth and width of the network while keeping the computational budget constant.",
-    "provevance": "https://github.com/onnx/models/tree/master/bvlc_googlenet",
+    "provevance": "https://github.com/BVLC/caffe/tree/master/models/bvlc_googlenet",
     "architecture": "Convolutional Neural Network (CNN)",
     "learning_type": "Supervised learning",
-    "format": ".onnx",
+    "format": ".prototxt",
     "io": {
       "input": {
         "format": ["image/png", "image/jpg", "image/jpeg"],
